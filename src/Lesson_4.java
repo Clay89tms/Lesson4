@@ -47,6 +47,9 @@ public class Lesson_4 {
                     case (6):
                         dz04_06();
                         break;
+                    case (7):
+                        dz04_07();
+                        break;
                     default:
                         System.out.println("нет такого Домашнего Задания!");
                 }
@@ -56,13 +59,34 @@ public class Lesson_4 {
                 System.out.println("Вы ввели не номер задания...");
                 break;
             }
+//            что-то не так работает ТОЧКА, потом буду править.
         } while (dz4 != '.');
         sc.close();
     }
 
+    private static void dz04_07() {
+//        Реализуйте алгоритм сортировки пузырьком.
+        int a;
+    }
+
     private static void dz04_06() {
+//        Создайте массив строк. Заполните его произвольными именами людей.
+//        Отсортируйте массив.
+//        Результат выведите на консоль.
+        String[] name = {"Игорь", "Андрей", "Павел", "Сергей", "Александр", "Евгений", "Михаил", "Роман"};
+        System.out.println("Длинна массива : " + name.length);
+        System.out.print("Изначальный массив строк : ");
+        for (int i = 0; i < name.length; i++) {
+            System.out.print(name[i] + " ");
+        }
+        Arrays.sort(name);
+        System.out.print("\nОтсортированный массив строк : ");
+        for (int i = 0; i < name.length; i++) {
+            System.out.print(name[i] + " ");
+        }
 
     }
+
 
     private static void dz04_05() {
 //        Создайте массив и заполните массив.
@@ -180,8 +204,7 @@ public class Lesson_4 {
         if (a_sr >= b_sr) {
             if (a_sr > b_sr) {
                 System.out.println("Среднее арифметической Массива №1 больше №2");
-            }
-            else {
+            } else {
                 System.out.println("Среднее арифметической Массива №1 равно №2");
             }
         } else {

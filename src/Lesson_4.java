@@ -66,7 +66,30 @@ public class Lesson_4 {
 
     private static void dz04_07() {
 //        Реализуйте алгоритм сортировки пузырьком.
-        int a;
+        int[] bubble = new int[10];
+        System.out.print("Исходный массив : ");
+        for (int i = 0; i < bubble.length; i++) {
+            bubble[i] = (int) (Math.random() * 10);
+            System.out.print(bubble[i] + " ");
+        }
+        boolean sort = false;
+        int per;
+        while (!sort) {
+            sort = true;
+            for (int i = 0; i < bubble.length - 1; i++) {
+                if (bubble[i] > bubble[i + 1]) {
+                    per = bubble[i];
+                    bubble[i] = bubble[i + 1];
+                    bubble[i + 1] = per;
+                    sort = false;
+                }
+            }
+        }
+        System.out.print("\nпосле сортировки ПУЗЫРЬКОМ : ");
+        for (int i =0; i<bubble.length; i++){
+            System.out.print(bubble[i] + " ");
+        }
+
     }
 
     private static void dz04_06() {

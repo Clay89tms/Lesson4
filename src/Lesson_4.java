@@ -6,17 +6,12 @@ import java.util.Scanner;
 public class Lesson_4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-
         Integer dz4 = null;
-
 
         do {
             dz4 = 0;
-            System.out.print("Ведите номер ДЗ 4: ");
+            System.out.print("Для выхода введите точку.\nВедите номер ДЗ 4: ");
             if (sc.hasNextInt()) {
-
-
                 dz4 = sc.nextInt();
                 switch (dz4) {
                     case (0):
@@ -32,7 +27,7 @@ public class Lesson_4 {
                     case (2):
                         System.out.println("Домашнее задание №2");
                         dz04_02();
-                        //Ввели не номер задания..
+                        //Отлично!
                         break;
                     case (3):
                         System.out.println("Домашнее задание №3");
@@ -49,16 +44,24 @@ public class Lesson_4 {
                         dz04_05();
                         //Отлично!
                         break;
+                    case (6):
+                        dz04_06();
+                        break;
                     default:
                         System.out.println("нет такого Домашнего Задания!");
                 }
+                System.out.println();
 
             } else {
                 System.out.println("Вы ввели не номер задания...");
                 break;
             }
-        } while (dz4 < 7);
+        } while (dz4 != '.');
         sc.close();
+    }
+
+    private static void dz04_06() {
+
     }
 
     private static void dz04_05() {
@@ -142,7 +145,7 @@ public class Lesson_4 {
                 break;
             }
         } while ((size > 10) || (size <= 5));
-        System.out.println("\n");
+        System.out.println();
     }
 
     private static void dz04_03() {
@@ -175,10 +178,15 @@ public class Lesson_4 {
 
 //        Приверка массива 1 и 2, какой больше или равны
         if (a_sr >= b_sr) {
-            if (a_sr > b_sr) System.out.println("Среднее арифметической Массива №1 больше №2");
-            else System.out.println("Среднее арифметической Массива №1 равно №2");
-        } else System.out.println("Среднее арифметической Массива №2 больше №1");
-        System.out.println();
+            if (a_sr > b_sr) {
+                System.out.println("Среднее арифметической Массива №1 больше №2");
+            }
+            else {
+                System.out.println("Среднее арифметической Массива №1 равно №2");
+            }
+        } else {
+            System.out.println("Среднее арифметической Массива №2 больше №1");
+        }
 //        Можно и так вывести массив на экран
 //        System.out.println("Первый массив: {" + a[0] + ", " + a[1] + ", " + a[2]
 //                + ", " + a[3] + ", " + a[4] + "}");
@@ -227,7 +235,6 @@ public class Lesson_4 {
                     + "\nМаксимальное число в массиве: " + max
                     + "\nСреднее Арифметическое число всех элементов: " + sr_ar);
         }
-        sc.close();
     }
 
     private static void dz04_01() {
@@ -269,10 +276,9 @@ public class Lesson_4 {
                 for (int i = 0; i < (a.length); i++) {
                     System.out.print(a[i] + " ");
                 }
+                System.out.println();
             } else System.out.println("Числа нет в массиве!");
         } else System.out.println("Ввели не число!");
-        sc.close();
-        System.out.println();
     }
 
     private static void dz04_00() {
@@ -310,6 +316,5 @@ public class Lesson_4 {
                 }
             }
         } else System.out.println("Ввели не число!");
-        sc.close();
     }
 }

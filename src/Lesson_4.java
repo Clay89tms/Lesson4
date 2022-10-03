@@ -17,32 +17,27 @@ public class Lesson_4 {
                     case (0):
                         System.out.println("Домашнее задание №0");
                         dz04_00();
-                        //окончание?
                         break;
                     case (1):
                         System.out.println("Домашнее задание №1");
                         dz04_01();
-                        //Ввели не номер задания..
                         break;
                     case (2):
                         System.out.println("Домашнее задание №2");
                         dz04_02();
-                        //Отлично!
                         break;
                     case (3):
                         System.out.println("Домашнее задание №3");
                         dz04_03();
-                        //Отлично!
                         break;
                     case (4):
 //                    Дополнительное задание
                         System.out.println("Дополниетльное Домашнее задание №4");
                         dz04_04();
-                        //Отлично!
                         break;
                     case (5):
                         dz04_05();
-                        //Отлично!
+                        //Поправить
                         break;
                     case (6):
                         dz04_06();
@@ -86,7 +81,7 @@ public class Lesson_4 {
             }
         }
         System.out.print("\nпосле сортировки ПУЗЫРЬКОМ : ");
-        for (int i =0; i<bubble.length; i++){
+        for (int i = 0; i < bubble.length; i++) {
             System.out.print(bubble[i] + " ");
         }
 
@@ -149,7 +144,6 @@ public class Lesson_4 {
         Scanner sc = new Scanner(System.in);
         Integer size = null;
         Integer size2 = null;
-//        Random rnd = new Random();
 
         do {
             System.out.print("Задайте размер массива (только >5 и <=10) : ");
@@ -294,38 +288,45 @@ public class Lesson_4 {
         a[0] = 1;
         a[1] = 3;
         a[2] = 5;
-        a[3] = 7;
+        a[3] = 3;
         a[4] = 9;
-        a[5] = 2;
+        a[5] = 3;
         a[6] = 4;
-        a[7] = 6;
+        a[7] = 3;
         a[8] = 8;
-        a[9] = 0;
-        int[] b = Arrays.copyOf(a, a.length);
+        a[9] = 3;
 
+        int b[];
         Scanner sc = new Scanner(System.in);
         System.out.print("Какое число ищем: ");
 
         Integer chis = null;
         if (sc.hasNextInt()) {
             chis = sc.nextInt();
-            boolean bol = false;
-
-            for (int i = 0; i < (a.length); i++) {
+            int counter = 0;
+            int take = 0;
+            boolean boo = true;
+            for (int i = 0; i < (a.length) - take; i++) {
                 if (a[i] == chis) {
-                    a[i] = 0;
-                    bol = true;
+                    boo = false;
+
+                    for (int j = counter; j < (a.length) - 1; j++) {
+                        a[j] = a[j + 1];
+                    }
+                    take++;
                 }
+                counter++;
             }
-            if (bol) {
-                System.out.print("Так выглядит массив после удаления: ");
-                for (int i = 0; i < (a.length); i++) {
-                    System.out.print(a[i] + " ");
-                }
-                System.out.println();
-            } else System.out.println("Числа нет в массиве!");
+            b = Arrays.copyOf(a, (a.length) - take + 1);
+            System.out.print("Так выглядит массив после удаления: ");
+            for (int i = 0; i < (b.length)-1; i++) {
+                System.out.print(b[i] + " ");
+            }
+            System.out.println();
+            if (boo) System.out.println("Числа нет в массиве!");
         } else System.out.println("Ввели не число!");
     }
+
 
     private static void dz04_00() {
 //        Создайте массив целых чисел.Напишете программу, которая выводит
@@ -351,15 +352,16 @@ public class Lesson_4 {
             a[8] = 8;
             a[9] = 0;
             System.out.println("длинна массива " + a.length);
+            boolean b = true;
             for (int i = 0; i < (a.length); i++) {
                 if (a[i] == chis) {
                     System.out.println("Это число есть в массиве!");
+                    b = false;
                     break;
                 }
-                if (a[i] != chis) {
-                    System.out.println("Числа нет в массиве!");
-                    break;
-                }
+            }
+            if (b) {
+                System.out.println("Числа нет в массиве!");
             }
         } else System.out.println("Ввели не число!");
     }

@@ -37,7 +37,6 @@ public class Lesson_4 {
                         break;
                     case (5):
                         dz04_05();
-                        //Поправить
                         break;
                     case (6):
                         dz04_06();
@@ -113,21 +112,18 @@ public class Lesson_4 {
 //        Снова выведете массив на экран на отдельной строке.
 
         int[] a = new int[10];
-        int[] b = new int[10];
         System.out.print("Произволный исходный массив : { ");
         for (int i = 0; i < a.length; i++) {
             a[i] = (int) (Math.random() * 10);
             System.out.print(a[i] + " ");
-            if (!(a[i] % 2 == 0)) {
-                b[i] = 0;
-            } else {
-                b[i] = (int) a[i];
+            if (!(i % 2 == 0)) {
+                a[i] = 0;
             }
         }
         System.out.println("}");
         System.out.print("Измененный массив : { ");
-        for (int i = 0; i < b.length; i++) {
-            System.out.print(b[i] + " ");
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + " ");
         }
         System.out.println("}\n");
     }
